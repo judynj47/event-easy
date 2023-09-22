@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "199053822755",
+    "firebase_url": "https://event-easy-app-default-rtdb.firebaseio.com",
+    "project_id": "event-easy-app",
+    "storage_bucket": "event-easy-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199053822755:android:23b9bacff9d389b71b1a96",
+        "android_client_info": {
+          "package_name": "com.example.eventeasyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199053822755-qlt79ql1mnvba2if1hphf7ihhe1edupq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfw0LUj7FhOmxOVgCj_8jhtRKgm8EddSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199053822755-qlt79ql1mnvba2if1hphf7ihhe1edupq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
