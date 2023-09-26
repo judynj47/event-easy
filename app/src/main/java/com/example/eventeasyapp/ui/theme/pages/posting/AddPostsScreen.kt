@@ -48,7 +48,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.eventeasyapp.data.EventRepository
 import com.example.eventeasyapp.ui.theme.EventEasyAppTheme
-import com.example.eventeasyapp.ui.theme.Maroon
+import com.example.eventeasyapp.ui.theme.LightBurgundy
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,10 +62,10 @@ fun AddPostsScreen(navController: NavHostController,modifier: Modifier = Modifie
     ) {
         var context = LocalContext.current
         Text(
-            text = "Add post",
-            fontSize = 15.sp,
+            text = "New post",
+            fontSize = 25.sp,
             fontFamily = FontFamily.Serif,
-            color = Maroon,
+            color = LightBurgundy,
             modifier = Modifier.padding(20.dp),
             fontWeight = FontWeight.Bold,
             textDecoration = TextDecoration.Underline
@@ -172,7 +172,7 @@ fun ImagePicker(modifier: Modifier = Modifier,
             Button(
                 onClick = {
                     imagePicker.launch("image/*")
-                },colors = ButtonDefaults.buttonColors(Maroon)) {
+                },colors = ButtonDefaults.buttonColors(LightBurgundy)) {
                 Text(
                     text = "Select Image"
                 )
@@ -186,7 +186,7 @@ fun ImagePicker(modifier: Modifier = Modifier,
                 productRepository.savePosts(title, time, location,price,desc,imageUri!!)
 
 
-            },colors = ButtonDefaults.buttonColors(Maroon)) {
+            },colors = ButtonDefaults.buttonColors(LightBurgundy)) {
                 Text(text = "Upload")
             }
         }

@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -32,7 +33,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.eventeasyapp.data.AuthRepository
 import com.example.eventeasyapp.navigation.ROUTE_LOGIN
+import com.example.eventeasyapp.ui.theme.Burgundy
 import com.example.eventeasyapp.ui.theme.EventEasyAppTheme
+import com.example.eventeasyapp.ui.theme.LightBurgundy
 import com.example.eventeasyapp.ui.theme.Maroon
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,7 +50,7 @@ fun SignupScreen(navController: NavHostController) {
         Text(text = "Register here",
             fontSize = 30.sp,
             fontFamily = FontFamily.Cursive,
-            color = Maroon,
+            color = Burgundy,
             modifier = Modifier.padding(20.dp),
             fontWeight = FontWeight.Bold,
             textDecoration = TextDecoration.Underline)
@@ -79,7 +82,7 @@ fun SignupScreen(navController: NavHostController) {
         Button(onClick = {
             var authRepository = AuthRepository(navController, context)
             authRepository.signup(name.text.trim(), email.text.trim(), password.text.trim())
-        }) {
+        }, colors = ButtonDefaults.buttonColors(LightBurgundy)) {
 
             Spacer(modifier = Modifier.height(20.dp))
 

@@ -4,6 +4,7 @@ import android.content.res.Configuration
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -18,7 +19,6 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DeleteForever
-import androidx.compose.material.icons.filled.UploadFile
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -26,7 +26,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -41,16 +40,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.eventeasyapp.models.Event
 import com.example.eventeasyapp.data.EventRepository
-import com.example.eventeasyapp.navigation.ROUTE_BOOKING
+import com.example.eventeasyapp.models.Event
 import com.example.eventeasyapp.navigation.ROUTE_UPDATE_POSTS
 import com.example.eventeasyapp.ui.theme.EventEasyAppTheme
-import com.example.eventeasyapp.ui.theme.Maroon
-import com.example.eventeasyapp.ui.theme.Neutral
+import com.example.eventeasyapp.ui.theme.LightBurgundy
 
 @Composable
 fun PostsScreen(navController:NavHostController) {
@@ -108,7 +106,7 @@ fun EventItem(eventTitle:String,eventTime:String,eventLocation:String,
                 .width(500.dp),
                 //.align(CenterHorizontally),
             colors = CardDefaults.cardColors(
-                containerColor = Neutral,
+                containerColor = LightBurgundy,
                 ),
             shape = RoundedCornerShape(corner= CornerSize(10.dp))
         ) {
@@ -124,36 +122,19 @@ fun EventItem(eventTitle:String,eventTime:String,eventLocation:String,
                     contentScale = ContentScale.Crop)
                 Column (modifier = Modifier.padding(5.dp)){
                     Text(text = eventTitle, fontWeight = FontWeight.Bold, textDecoration = TextDecoration.Underline)
-                    Text(text = "Time: $eventTime")
-                    Text(text = "Location: $eventLocation")
-                    Text(text = "Price: $eventPrice")
-                    Text(text = "Description: $eventDesc")
-//                    IconButton(onClick = { navController.navigate(ROUTE_UPDATE_POSTS) })
-//                        //colors = ButtonDefaults.buttonColors(Maroon))
-//                    {
-//                        Text(text = "GET TICKETS")
-//
-//                    }
-                     Row {
-//                        IconButton(
-//                            onClick = { navController.navigate(ROUTE_UPDATE_POSTS)
-//                                //eventRepository.updatePosts("","","","","","","")
-//                            }, colors = IconButtonDefaults.iconButtonColors(
-//                                containerColor = Color.White,
-//                                contentColor = Neutral
-//                            )
-//                        ) {
-//                            Icon(
-//                                imageVector = Icons.Default.UploadFile,
-//                                contentDescription = "Update Post"
-//                            )
-//                        }
+                    Text(text = "Time: $eventTime",fontWeight = FontWeight.Bold)
+                    Text(text = "Location: $eventLocation",fontWeight = FontWeight.Bold)
+                    Text(text = "Price: $eventPrice",fontWeight = FontWeight.Bold)
+                    //Text(text = "Description: $eventDesc")
+
+                     Row (modifier = Modifier,
+                         horizontalArrangement = Arrangement.SpaceBetween){
                          IconButton(
                              onClick = {
                                  eventRepository.deletePost(eventId)
                              }, colors = IconButtonDefaults.iconButtonColors(
                                  containerColor = Color.White,
-                                 contentColor = Neutral
+                                 contentColor = Color.Red
                              )
                          ) {
                              Icon(
@@ -161,6 +142,9 @@ fun EventItem(eventTitle:String,eventTime:String,eventLocation:String,
                                  contentDescription = "Delete Icon"
                              )
                          }
+                         Text(text = "Click to update post",
+                             fontSize = 10.sp,
+                             modifier = Modifier.padding(15.dp))
                      }
 
                    }
@@ -169,14 +153,6 @@ fun EventItem(eventTitle:String,eventTime:String,eventLocation:String,
             }
         }
         Spacer(modifier = Modifier.height(10.dp))
-
-//        TextButton(onClick = { navController.navigate(ROUTE_PAYMENT) })
-//        //colors = ButtonDefaults.buttonColors(Maroon))
-//        {
-//            Text(text = "GET TICKETS")
-//
-//        }
-
 
 }
 

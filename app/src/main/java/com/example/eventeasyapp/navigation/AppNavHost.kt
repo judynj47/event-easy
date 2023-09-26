@@ -3,20 +3,15 @@ package com.example.eventeasyapp.navigation
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.eventeasyapp.Destinations
-import com.example.eventeasyapp.data.AuthRepository
 import com.example.eventeasyapp.ui.theme.pages.booking.BookingScreen
-import com.example.eventeasyapp.ui.theme.pages.posting.AddPostsScreen
-//import com.example.eventeasyapp.ui.theme.pages.posting.UpdatePostsScreen
-import com.example.eventeasyapp.ui.theme.pages.posting.PostsScreen
 import com.example.eventeasyapp.ui.theme.pages.home.HomeScreen
-//import com.example.eventeasyapp.ui.theme.pages.home.HomeScreen
 import com.example.eventeasyapp.ui.theme.pages.login.LoginScreen
-import com.example.eventeasyapp.ui.theme.pages.payment.PaymentScreen
+import com.example.eventeasyapp.ui.theme.pages.posting.AddPostsScreen
+import com.example.eventeasyapp.ui.theme.pages.posting.PostsScreen
 import com.example.eventeasyapp.ui.theme.pages.posting.UpdatePostsScreen
 import com.example.eventeasyapp.ui.theme.pages.profile.ProfileScreen
 import com.example.eventeasyapp.ui.theme.pages.signup.SignupScreen
@@ -38,7 +33,6 @@ fun NavigationGraph(navController: NavHostController) {
         }
 
         composable(ROUTE_POSTS){
-
             PostsScreen(navController)
         }
         composable(ROUTE_BOOKING+"/{id}"){ passedData->
@@ -58,13 +52,4 @@ fun NavigationGraph(navController: NavHostController) {
 
 }
 
-
-
-
-            //Design view products screen
-            // ViewProductsScreen(navController)
-
-       // composable(ROUTE_UPDATE_PRODUCTS + "/{id}"){ passedData->
-          //  UpdateProductsScreen(navController, passedData.arguments?.getString("id")!!)
-       // }
 

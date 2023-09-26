@@ -24,6 +24,7 @@ import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.outlined.LocationOn
 import androidx.compose.material.icons.outlined.MonetizationOn
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
@@ -34,12 +35,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -48,12 +47,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberImagePainter
 import com.example.eventeasyapp.data.EventRepository
+import com.example.eventeasyapp.models.Event
 import com.example.eventeasyapp.ui.theme.EventEasyAppTheme
+import com.example.eventeasyapp.ui.theme.LightBurgundy
 import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.example.eventeasyapp.models.Event
-import com.google.firebase.database.DatabaseError
 
 @Composable
 fun UpdatePostsScreen(navController: NavHostController,id:String) {
@@ -95,10 +95,10 @@ fun UpdatePostsScreen(navController: NavHostController,id:String) {
         })
 
         Text(
-            text = "Update product",
-            fontSize = 30.sp,
+            text = "Update post",
+            fontSize = 20.sp,
             //fontFamily = FontFamily.Cursive,
-            color = Color.Red,
+            color = LightBurgundy,
             modifier = Modifier.padding(20.dp),
             fontWeight = FontWeight.Bold,
             textDecoration = TextDecoration.Underline
@@ -181,8 +181,8 @@ fun UpdateImagePicker(modifier: Modifier = Modifier, context: Context, navContro
                 productTitle:String,
                 productTime:String,
                 productLocation:String,
-                productDesc:String,
-                productPrice:String,
+                      productPrice:String,
+                      productDesc:String,
                       id:String) {
     var hasImage by remember { mutableStateOf(false) }
     var imageUri by remember { mutableStateOf<Uri?>(null) }
@@ -208,7 +208,7 @@ fun UpdateImagePicker(modifier: Modifier = Modifier, context: Context, navContro
             Button(
                 onClick = {
                     imagePicker.launch("image/*")
-                },
+                },colors = ButtonDefaults.buttonColors(LightBurgundy)
             ) {
                 Text(
                     text = "Select Image"
@@ -224,14 +224,16 @@ fun UpdateImagePicker(modifier: Modifier = Modifier, context: Context, navContro
                     productTitle.trim(),
                     productTime.trim(),
                     productLocation.trim(),
-                    productDesc.trim(),
                     productPrice.trim(),
+                    productDesc.trim(),
+
                     id,
                     imageUri!!
                 )
 
 
-            }) {
+            }, colors = ButtonDefaults.buttonColors(LightBurgundy)
+                ) {
                 Text(text = "Upload")
             }
         }

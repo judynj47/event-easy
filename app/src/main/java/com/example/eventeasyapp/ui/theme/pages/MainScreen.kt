@@ -2,16 +2,12 @@ package com.example.eventeasyapp.ui.theme.pages
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -25,16 +21,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
-import androidx.compose.ui.input.nestedscroll.NestedScrollSource
-import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavGraph.Companion.findStartDestination
@@ -48,9 +39,7 @@ import com.example.eventeasyapp.navigation.ROUTE_HOME
 import com.example.eventeasyapp.navigation.ROUTE_LOGIN
 import com.example.eventeasyapp.ui.theme.Burgundy
 import com.example.eventeasyapp.ui.theme.Maroon
-import com.example.eventeasyapp.ui.theme.MistyBlue
 import com.example.eventeasyapp.ui.theme.MyPink
-import com.example.eventeasyapp.ui.theme.Neutral
 
 @RequiresApi(Build.VERSION_CODES.S)
 @OptIn(ExperimentalMaterial3Api::class)
@@ -113,7 +102,7 @@ fun TopBar(navController: NavHostController) {
                 Text("EventEasy",
                     fontSize = 20.sp,
                     fontFamily = FontFamily.Serif,
-                    color = Maroon,
+                    color = Burgundy,
                     modifier = Modifier.padding(3.dp),
                     fontWeight = FontWeight.Bold)
             }

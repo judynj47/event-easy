@@ -1,13 +1,11 @@
 package com.example.eventeasyapp.ui.theme.pages.profile
 
-import android.content.Context
 import android.content.res.Configuration
 import android.net.Uri
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -27,7 +25,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -42,18 +39,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberImagePainter
 import com.example.eventeasyapp.R
 import com.example.eventeasyapp.data.AuthRepository
 import com.example.eventeasyapp.ui.theme.EventEasyAppTheme
-import com.example.eventeasyapp.ui.theme.Maroon
-import com.example.eventeasyapp.ui.theme.pages.login.LoginScreen
+import com.example.eventeasyapp.ui.theme.LightBurgundy
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -61,7 +55,7 @@ fun ProfileScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.White)
+            //.background(Color.White)
             .wrapContentSize(Alignment.Center),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -75,7 +69,7 @@ fun ProfileScreen(navController: NavHostController) {
     }
     var name by rememberSaveable { mutableStateOf("name") }
     var username by rememberSaveable { mutableStateOf("username")}
-    var email by rememberSaveable { mutableStateOf("password")}
+    var email by rememberSaveable { mutableStateOf("email")}
     var context = LocalContext.current
 
     Column(modifier = Modifier
@@ -92,11 +86,11 @@ fun ProfileScreen(navController: NavHostController) {
         ) {
             Text(
                 text = "Cancel",
-                color = Maroon,
+                color = LightBurgundy,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.clickable { notification.value = "Cancelled" })
             Text(text = "Save",
-                color = Maroon,
+                color = LightBurgundy,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.clickable { notification.value = "Profile updated" })
 
@@ -111,7 +105,7 @@ fun ProfileScreen(navController: NavHostController) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(text = "Name",
-                color = Maroon,
+                color = LightBurgundy,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.width(100.dp))
             TextField(
@@ -137,7 +131,7 @@ fun ProfileScreen(navController: NavHostController) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(text = "Username",
-                color = Maroon,
+                color = LightBurgundy,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.width(100.dp))
             TextField(
@@ -160,7 +154,7 @@ fun ProfileScreen(navController: NavHostController) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(text = "Email",
-                color = Maroon,
+                color = LightBurgundy,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.width(100.dp))
             TextField(
@@ -183,7 +177,7 @@ fun ProfileScreen(navController: NavHostController) {
                 var authRepository = AuthRepository(navController, context)
                 authRepository.logout()
             },
-                colors = ButtonDefaults.buttonColors(Maroon)
+                colors = ButtonDefaults.buttonColors(LightBurgundy)
             ) {
                 Text(text = "Logout")
 
@@ -235,7 +229,7 @@ fun ProfileImage() {
 
         }
         Text(text = "Change profile picture",
-            color = Maroon,
+            color = LightBurgundy,
             fontWeight = FontWeight.Bold)
 
     }

@@ -13,4 +13,10 @@ val Maroon = Color(0xFF74112F)
 val MistyBlue = Color(0xFFA4ACBE)
 val Neutral = Color(0xFF6F635B)
 val Burgundy = Color(0xFA85173B)
-val MyPink = Color(0xEDE91E70)
+val MyPink = Color(0xEBEC8FD0)
+val BrightPink = Color(0xFFD43790)
+val LightBurgundy = Color(0xFFA8415B)
+
+
+
+
